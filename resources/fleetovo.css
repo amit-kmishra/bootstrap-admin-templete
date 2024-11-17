@@ -1,0 +1,119 @@
+@font-face {
+    font-family: DejaVuSans;
+    src: url("DejaVuSans.ttf");
+}
+
+@font-face {
+    font-family: DejaVuSans_Bold;
+    src: url("DejaVuSans-Bold.ttf");
+}
+
+:root {
+    --offcanvas-width: 200px;
+    --topnavbar-height: 65px;
+}
+
+body {
+    font-family: DejaVuSans;
+    min-height: 200vh;
+    background: #adb5bd;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #00796b;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 15px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-family: DejaVuSans_Bold;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.navbar {
+    background: #00897b !important;
+}
+
+.nav-link {
+    color: var(--primary-color-4);
+}
+
+.sidebar-nav {
+    max-width: var(--offcanvas-width);
+    background: #00897b !important;
+    border: #00897b !important;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon {
+    display: inline-flex;
+    transition: all ease 0.25s;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+
+.card {
+    background: gray !important;
+    color: black
+}
+
+@media(min-width:992px) {
+    body {
+        overflow: auto !important;
+    }
+
+    .offcanvas-backdorp::before {
+        display: none !important;
+    }
+
+    .sidebar-nav {
+        transform: none !important;
+        visibility: visible !important;
+        top: var(--topnavbar-height) !important;
+        height: calc(100% - var(--topnavbar-height));
+    }
+
+    main {
+        margin-left: var(--offcanvas-width);
+    }
+}
+
+main {
+    margin-top: 70px;
+}
